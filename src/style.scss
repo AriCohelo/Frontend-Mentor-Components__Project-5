@@ -1,0 +1,128 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Hanken Grotesk', sans-serif;
+}
+.card {
+	background-color: white;
+	border-radius: 25px;
+	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+	&__left {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: $background-gradient;
+		border-radius: 25px;
+		padding: 25px;
+		&__title {
+			font-size: 1.2rem;
+			color: $left-card-lightBlueGray;
+			padding: 5px 0 20px 0;
+		}
+		&__circle {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 160px;
+			width: 160px;
+			border-radius: 50%;
+			background: $circle-background-gradient;
+			&-primary {
+				color: white;
+				font-size: 3.5rem;
+				font-weight: 700;
+			}
+			&-secondary {
+				color: $left-card-darkBlueGray;
+				font-size: 1.2rem;
+			}
+		}
+		&__comment {
+			color: white;
+			padding: 15px 0;
+			font-size: 2rem;
+			font-weight: 600;
+		}
+		&__percentage {
+			color: $left-card-lightBlueGray;
+			text-align: center;
+			padding: $padding-standard;
+		}
+	}
+	&__right {
+		background: transparent;
+		padding: 25px;
+		&__summary {
+			color: $button-blueGray;
+			font-size: 1.2rem;
+			padding-bottom: 20px;
+			font-weight: 700;
+		}
+		&__reaction {
+			background-color: rgba(255, 85, 85, 0.1);
+
+			@include rightCardResults();
+			&-title {
+				color: #f55;
+			}
+			&-value {
+				color: $button-blueGray;
+				font-weight: 700;
+			}
+		}
+		&__memory {
+			background-color: #ffb01e2f;
+			@include rightCardResults();
+			&-title {
+				color: #ffb21e;
+			}
+			&-value {
+				color: $button-blueGray;
+				font-weight: 700;
+			}
+		}
+		&__verbal {
+			background-color: #00bb8f39;
+			@include rightCardResults();
+			&-title {
+				color: #00bb8f;
+			}
+			&-value {
+				color: $button-blueGray;
+				font-weight: 700;
+			}
+		}
+		&__visual {
+			background-color: #1125d63b;
+			@include rightCardResults();
+			&-title {
+				color: #1125d6;
+			}
+			&-value {
+				color: $button-blueGray;
+				font-weight: 700;
+			}
+		}
+		&__continue {
+			@include flexCenter();
+			margin-top: 30px;
+			height: 50px;
+			background-color: $button-blueGray;
+			border-radius: 25px;
+			color: $left-card-lightBlueGray;
+			&:hover {
+				background-color: #3328ea;
+				cursor: pointer;
+			}
+		}
+	}
+}
